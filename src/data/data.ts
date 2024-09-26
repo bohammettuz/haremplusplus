@@ -216,6 +216,7 @@ export interface CommonGirlData extends BaseGirlData {
    * from level and stars, but ignores blessings.
    */
   stats?: Stats;
+  payAt?: number;
 }
 
 export interface Stats {

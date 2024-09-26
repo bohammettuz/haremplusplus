@@ -258,6 +258,12 @@ export class GameAPIImpl implements GameAPI {
     const girlsMap = getGirlSalaryManager().girlsMap;
     const waifuList = window.girls_data_list as unknown as GirlsDataEntry[];
     girlsMap[girl.id]?.onSalaryBtnClicked(event, waifuList);
+
+    if (this.updateGirl) {
+      girl.payAt = Date.now() + (girl.salaryTime ?? 3600) * 1000;
+      this.updateGirl(girl);
+    }
+
     return true;
   }
 

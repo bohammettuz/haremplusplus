@@ -134,6 +134,15 @@ export function salary(): Comparator {
   return (g1, g2) => (g1.salary ?? 0) - (g2.salary ?? 0);
 }
 
+export function salaryReady(): Comparator {
+  return (g1, g2) => {
+    const now = Date.now()
+    const g1Ready = g1.payAt !== undefined && g1.payAt > now
+    const g2Ready = g2.payAt !== undefined && g2.payAt > now
+    return (g1Ready === g2Ready) ? 0 : (g1Ready ? -1 : 1)
+  };
+}
+
 export function potential(blessings: BlessingDefinition[]): Comparator {
   return (g1, g2) =>
     getNormalizedPower(g1, blessings) - getNormalizedPower(g2, blessings);
@@ -206,7 +215,7 @@ export const GradeSorter: ConfiguredSort = {
 export const SalarySorter: ConfiguredSort = {
   id: 'salary',
   direction: 'desc',
-  sorter: sorter('Salary', salary(), rarity(), maxGrade(), shards(), id())
+  sorter: sorter('Salary', salaryReady(), salary(), rarity(), maxGrade(), shards(), id())
 };
 
 export const PvPValueSorter: ConfiguredSort = {

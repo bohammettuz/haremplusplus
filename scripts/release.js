@@ -11,8 +11,8 @@ const cssCode = fs.readFileSync(cssFile).toString().split('\n')[0];
 const packageJson = require('../package.json');
 
 const output = `// ==UserScript==
-// @name         Harem++
-// @namespace    https://github.com/rena-jp/haremplusplus
+// @name         Harem++ X
+// @namespace    https://github.com/bohammettuz/haremplusplus
 // @version      ${packageJson.version}
 // @description  Replace the original Harem page with a quicker, more dynamic version
 // @author       Liliat, rena-jp
@@ -24,8 +24,8 @@ const output = `// ==UserScript==
 // @match        https://*.gayharem.com/*
 // @match        https://*.gaypornstarharem.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=hentaiheroes.com
-// @updateURL    https://raw.githubusercontent.com/rena-jp/haremplusplus/main/release/haremplusplus.user.js
-// @downloadURL  https://raw.githubusercontent.com/rena-jp/haremplusplus/main/release/haremplusplus.user.js
+// @_updateURL    https://raw.githubusercontent.com/rena-jp/haremplusplus/main/release/haremplusplus.user.js
+// @_downloadURL  https://raw.githubusercontent.com/rena-jp/haremplusplus/main/release/haremplusplus.user.js
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==

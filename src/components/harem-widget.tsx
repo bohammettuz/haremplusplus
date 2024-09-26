@@ -91,6 +91,11 @@ export const HaremWidget: React.FC<HaremWidgetProps> = ({
   const setGirlsSalaries = useCallback((salaries: Map<string, number>) => {
     setGirlsSalariesMap(salaries);
     salariesRef.current = salaries;
+    allGirls.forEach((girl) => {
+      if (salaries.has(girl.id)) {
+        girl.payAt = salaries.get(girl.id)
+      }
+    })
   }, []);
 
   useMemo(() => {
